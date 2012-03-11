@@ -1,0 +1,28 @@
+# Makefile for the main HotDrink library.
+
+include $(MAKEDIR)/Makefile.common
+include $(MAKEDIR)/Makefile.js
+
+##################################################
+# mandatory configuration
+
+TITLE := jsdoc
+
+##################################################
+# optional configuration
+
+MAIN := $(TITLE).js
+MAINPLUS := $(TITLE)-plus.js
+
+SRCDIR := lib
+SOURCES := \
+  main.js
+
+HEADERS := \
+
+OBJDIR := build
+
+THIRD_PARTY_SOURCES := \
+
+DOCDIR := doc
+
