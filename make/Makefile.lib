@@ -16,6 +16,7 @@ MAINPLUS := $(TITLE)-plus.js
 
 SRCDIR := lib
 SOURCES := \
+  comment.js \
   main.js
 
 HEADERS := \
