@@ -19,6 +19,7 @@ SOURCES := \
   namespace.js \
   attach.js \
   source.js \
+  context.js \
   main.js
 
 HEADERS := \
