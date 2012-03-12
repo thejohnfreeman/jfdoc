@@ -10,8 +10,8 @@
 ##################################################
 # automatic configuration
 
-export MAIN
-export MAINPLUS
+export ALL
+export TITLE
 export SRCDIR
 export HEADERS
 export SOURCES

@@ -21,8 +21,8 @@ GZIP := gzip
 ##################################################
 # self configuration (do not touch)
 
-$(SOURCES) :
-	@echo $@
+MAIN := $(TITLE).js
+MAINPLUS := $(TITLE)-plus.js
 
 # Headers hold m4 macros, so they are dependencies for all objects
 OBJECTS := $(addprefix $(OBJDIR)/,$(SOURCES))
@@ -43,11 +43,13 @@ $(sort $(dir $(OBJECTS))) :
 ##################################################
 # targets
 
-.PHONY : all debug release plus syntax doc
+.PHONY : all app debug release plus syntax doc
 
-all : debug
+all : $(ALL)
 #	@$(call watch,SOURCES)
 #	@$(call watch,OBJECTS)
+
+app : $(TITLE)
 
 debug : BUILD_FLAGS := $(DEBUG_FLAGS)
 debug : $(MAIN)
@@ -57,6 +59,10 @@ release : COMPILER := $(YUIC)
 # If you do not have the YUI Compressor installed:
 #release : COMPILER := cat
 release : $(MAIN).gz
+
+$(TITLE) : $(MAIN)
+	echo "#!/usr/bin/env node\n" | cat - $^ > $@
+	chmod +x $@
 
 $(MAIN) : $(OBJECTS)
 	cat $^ > $@

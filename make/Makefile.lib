@@ -1,4 +1,4 @@
-# Makefile for the main HotDrink library.
+# Makefile for the JSDoc application.
 
 include $(MAKEDIR)/Makefile.common
 include $(MAKEDIR)/Makefile.js
@@ -11,8 +11,7 @@ TITLE := jsdoc
 ##################################################
 # optional configuration
 
-MAIN := $(TITLE).js
-MAINPLUS := $(TITLE)-plus.js
+ALL := app
 
 SRCDIR := lib
 SOURCES := \
@@ -33,4 +32,5 @@ OBJDIR := build
 THIRD_PARTY_SOURCES := \
 
 DOCDIR := doc
+
 
