@@ -1,21 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html>
-<head>
-  <title>{{title}} | Documentation</title>
-  <!--
-    Syntax Highlighter by Alex Gorbatchev
-    http://alexgorbatchev.com/SyntaxHighlighter
-  -->
-  <script type="text/javascript" src="http://alexgorbatchev.com/pub/sh/current/scripts/shCore.js"></script>
-  <script type="text/javascript" src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushJScript.js"></script>
-  <link rel="stylesheet" type="text/css" href="http://alexgorbatchev.com/pub/sh/current/styles/shCore.css"></script>
-  <link rel="stylesheet" type="text/css" href="http://alexgorbatchev.com/pub/sh/current/styles/shThemeDefault.css"></script>
-  <style type="text/css">
-  .source { font-size: 10pt !important }
-  </style>
-</head>
-<body>
+{{> header}}
   {{#comment}}
   <h1>Comment</h1>
     <h2>Description</h2>
@@ -40,5 +23,4 @@
     SyntaxHighlighter.all();
   </script>
   {{/source}}
-</body>
-</html>
+{{> footer}}
