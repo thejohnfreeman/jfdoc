@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 <head>
-  <title>{{ title }} | Documentation</title>
+  <title>{{title}} | Documentation</title>
   <!--
     Syntax Highlighter by Alex Gorbatchev
     http://alexgorbatchev.com/SyntaxHighlighter
@@ -11,21 +11,32 @@
   <script type="text/javascript" src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushJScript.js"></script>
   <link rel="stylesheet" type="text/css" href="http://alexgorbatchev.com/pub/sh/current/styles/shCore.css"></script>
   <link rel="stylesheet" type="text/css" href="http://alexgorbatchev.com/pub/sh/current/styles/shThemeDefault.css"></script>
-  <style>
+  <style type="text/css">
+  .source { font-size: 10pt !important }
   </style>
 </head>
 <body>
+  {{#comment}}
   <h1>Comment</h1>
-  <div id="comment">
-    {{ comment }}
-  </div>
+    <h2>Description</h2>
+      <p>{{description}}</p>
+    <h2>Tags</h2>
+    <dl>
+      {{#tags}}
+      <dt>{{tag}}</dt>
+      <dd>{{options}}</dd>
+      {{/tags}}
+    </dl>
+  {{/comment}}
 
+  {{#source}}
   <h1>Source</h1>
-  <pre class="brush: js" id="source">
-{{ source }}
+  <pre class="brush: js; class-name: 'source'; first-line: {{line}}" id="source">
+{{{code}}}
   </pre>
   <script type="text/javascript">
     SyntaxHighlighter.all();
   </script>
+  {{/source}}
 </body>
 </html>
