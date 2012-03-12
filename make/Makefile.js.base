@@ -97,6 +97,7 @@ clean-obj :
 	-rm -rf $(OBJDIR)
 
 clean-exe :
+	-rm -f $(TITLE)
 	-rm -f $(MAIN)
 	-rm -f $(MAIN).gz
 

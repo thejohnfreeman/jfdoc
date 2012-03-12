@@ -1,0 +1,30 @@
+{
+  "name" : "jfdoc",
+  "version" : "0.1.0",
+  "author" : "John Freeman",
+  "description" : "JavaScript documentation generator",
+
+  "repository" : {
+    "type" : "git",
+    "url" : "git://github.com/thejohnfreeman/jfdoc.git"
+  },
+  "bugs" : {
+    "url" : "https://github.com/thejohnfreeman/jfdoc/issues"
+  },
+
+  "bin" : "jfdoc",
+
+  "dependencies" : {
+    "markdown" : "*",
+    "esprima" : "*",
+    "wrench" : "*"
+  },
+
+  "scripts" : {
+    "preinstall" : "make",
+    "test" : "make doc"
+  },
+
+  "preferGlobal" : true
+}
+
