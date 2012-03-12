@@ -19,6 +19,8 @@ SOURCES := \
   namespace.js \
   attach.js \
   source.js \
+  tags/namespace.js \
+  tags/file.js \
   context.js \
   main.js
 

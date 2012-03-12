@@ -1,26 +1,3 @@
-{{> header}}
-  {{#comment}}
-  <h1>Comment</h1>
-    <h2>Description</h2>
-      <div id="description">
-        {{{description}}}
-      </div>
-    <h2>Tags</h2>
-    <dl>
-      {{#tags}}
-      <dt>{{tag}}</dt>
-      <dd>{{options}}</dd>
-      {{/tags}}
-    </dl>
-  {{/comment}}
-
-  {{#source}}
-  <h1>Source</h1>
-  <pre class="brush: js; class-name: 'source'; first-line: {{line}}" id="source">
-{{code}}
-  </pre>
-  <script type="text/javascript">
-    SyntaxHighlighter.all();
-  </script>
-  {{/source}}
-{{> footer}}
+<h2>{{filename}}</h2>
+{{#author}}<h3>{{author}}</h3>{{/author}}
+{{comment.description}}
