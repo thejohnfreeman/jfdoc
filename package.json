@@ -15,9 +15,10 @@
   "bin" : "jfdoc",
 
   "dependencies" : {
-    "markdown" : "*",
+    "wrench" : "*",
     "esprima" : "*",
-    "wrench" : "*"
+    "markdown" : "*",
+    "dust" : "git://github.com/jeffbski/dustjs.git#amd"
   },
 
   "scripts" : {

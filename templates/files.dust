@@ -1,0 +1,10 @@
+{>main/}
+{<content}
+  <ul>
+    {#files}
+    <li>
+      {>file/}
+    </li>
+    {/files}
+  </ul>
+{/content}
