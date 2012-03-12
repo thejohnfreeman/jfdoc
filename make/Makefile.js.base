@@ -84,7 +84,7 @@ syntax : $(OBJECTS)
 	$(YUIC) /tmp/$@ > /dev/null
 
 doc : clean-doc
-	./jsdoc $(SOURCES)
+	./jfdoc $(SOURCES)
 
 ##################################################
 # cleaning

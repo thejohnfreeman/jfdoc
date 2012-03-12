@@ -6,7 +6,7 @@ include $(MAKEDIR)/Makefile.js
 ##################################################
 # mandatory configuration
 
-TITLE := jsdoc
+TITLE := jfdoc
 
 ##################################################
 # optional configuration
