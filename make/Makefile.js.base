@@ -78,7 +78,7 @@ syntax : $(OBJECTS)
 	$(YUIC) /tmp/$@ > /dev/null
 
 doc : clean-doc
-	nodejsdoc -d=$(DOCDIR) $(SOURCES)
+	./jsdoc $(SOURCES)
 
 ##################################################
 # cleaning

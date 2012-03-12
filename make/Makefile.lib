@@ -21,7 +21,7 @@ SOURCES := \
   source.js \
   tags/namespace.js \
   tags/file.js \
-  context.js \
+  documenter.js \
   parse.js \
   compile.js \
   main.js
