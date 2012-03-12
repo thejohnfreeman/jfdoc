@@ -2,4 +2,5 @@
 build
 node_modules
 jsdoc.js
+doc
 
