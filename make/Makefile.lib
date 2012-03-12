@@ -22,6 +22,8 @@ SOURCES := \
   tags/namespace.js \
   tags/file.js \
   context.js \
+  parse.js \
+  compile.js \
   main.js
 
 HEADERS := \
