@@ -1,3 +1,4 @@
-<h3>{filename}</h3>
-{#author}<h4>{.}</h4>{/author}
-{description|s}
+{! First line should be a comment or empty. Indent the rest. !}
+      <h3>{filename}</h3>
+      {#author}<h4>{.}</h4>{/author}
+      {description|s}
