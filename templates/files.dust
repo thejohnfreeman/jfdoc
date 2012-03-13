@@ -1,8 +1,12 @@
 {>main/}
 {<content}
+  {?files}
   <ul>
-    {#files}<li>
+    {#files}
+    <li>
       {>file/}
-    </li>{/files}
+    </li>
+    {/files}
   </ul>
+  {/files}
 {/content}

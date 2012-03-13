@@ -19,8 +19,10 @@ SOURCES := \
   attach.js \
   source.js \
   tags/tags.js \
+  tags/general.js \
   tags/file.js \
   tags/namespace.js \
+  tags/function.js \
   documenter.js \
   parse.js \
   compile.js \
