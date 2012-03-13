@@ -15,11 +15,12 @@ ALL := app
 
 SRCDIR := lib
 SOURCES := \
-  namespace.js \
+  jfdoc.js \
   attach.js \
   source.js \
-  tags/namespace.js \
+  tags/tags.js \
   tags/file.js \
+  tags/namespace.js \
   documenter.js \
   parse.js \
   compile.js \

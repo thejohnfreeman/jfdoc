@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 <head>
-  <title>{{title}} | Documentation</title>
+  <title>{title} | Documentation</title>
   <!--
     Syntax Highlighter by Alex Gorbatchev
     http://alexgorbatchev.com/SyntaxHighlighter
@@ -16,3 +16,7 @@
   </style>
 </head>
 <body>
+  {+content}
+  {/content}
+</body>
+</html>
