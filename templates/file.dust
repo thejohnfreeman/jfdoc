@@ -1,7 +1,7 @@
 {! First line should be a comment or empty. Indent the rest. !}
-      <h3>{source.file}</h3>
-      {#author}<h4>{.}</h4>{/author}
-      {description|s}
+      <h3>{file}</h3>
+      {#tags.author}<h5>{.}</h5>{/tags.author}
+      {tags.description|s}
 
       {?decls}
       <ul>
