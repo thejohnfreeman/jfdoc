@@ -1,5 +1,5 @@
 {! First line should be a comment or empty. Indent the rest. !}
-      <h3>{file}</h3>
+      <h3>{source.file}</h3>
       {#author}<h4>{.}</h4>{/author}
       {description|s}
 
