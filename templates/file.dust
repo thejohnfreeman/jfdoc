@@ -1,12 +1,14 @@
 {! First line should be a comment or empty. Indent the rest. !}
-      <h3>{filename}</h3>
+      <h3>{file}</h3>
       {#author}<h4>{.}</h4>{/author}
       {description|s}
 
       {?decls}
       <ul>
         {#decls}
-        <li><a href="{name}">{name}</a></li>
+        <li>
+          <a href="{href}">{name}</a>
+        </li>
         {/decls}
       </ul>
       {/decls}

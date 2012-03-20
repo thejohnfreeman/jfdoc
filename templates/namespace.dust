@@ -1,0 +1,45 @@
+{>main/}
+{<content}
+  <h2>{name}</h2>
+  {description|s}
+
+  <h3>Table of Contents <a href="#toc" name="toc">#</a></h3>
+
+  <h4>Functions</h4>
+  {?functions}
+  <ul>
+    {#functions}
+    <li>
+      <a href="#{name}">{name}()</a>
+    </li>
+    {/functions}
+  </ul>
+  {/functions}
+
+  <h4>Classes</h4>
+  {?classes}
+  <ul>
+    {#classes outer=name}
+    <li>
+      <a href="{outer}/{name}.html">{name}</a>
+    </li>
+    {/classes}
+  </ul>
+  {/classes}
+
+  <h4>Namespaces</h4>
+  {?namespaces}
+  <ul>
+    {#namespaces outer=name}
+    <li>
+      <a href="{outer}/{name}.html">{name}</a>
+    </li>
+    {/namespaces}
+  </ul>
+  {/namespaces}
+
+  {#functions}
+  <h3>{name}() <a href="#{name}" name="{name}">#</a></h3>
+  {description|s}
+  {/functions}
+{/content}
