@@ -25,7 +25,7 @@ SOURCES := \
   tags/function.js \
   documenter.js \
   parse.js \
-  compile.js \
+  generate/generate.js \
   main.js
 
 HEADERS := \
