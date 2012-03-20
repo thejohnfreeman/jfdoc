@@ -26,6 +26,8 @@ SOURCES := \
   documenter.js \
   parse.js \
   generate/generate.js \
+  generate/files.js \
+  generate/namespace.js \
   main.js
 
 HEADERS := \
