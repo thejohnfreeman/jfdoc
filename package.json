@@ -23,7 +23,7 @@
   },
 
   "scripts" : {
-    "preinstall" : "make",
+    "install" : "make",
     "test" : "make doc"
   },
 
