@@ -18,7 +18,8 @@
     "wrench" : "*",
     "esprima" : "*",
     "markdown" : "*",
-    "dust" : "git://github.com/jeffbski/dustjs.git#amd"
+    "dust" : "git://github.com/jeffbski/dustjs.git#amd",
+    "jsparse" : "*"
   },
 
   "scripts" : {
