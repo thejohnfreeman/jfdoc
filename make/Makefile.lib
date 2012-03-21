@@ -15,8 +15,9 @@ ALL := app
 
 SRCDIR := lib
 SOURCES := \
-  jfdoc.js \
   attach.js \
+  handlebars.js \
+  jfdoc.js \
   source.js \
   tags/tags.js \
   tags/general.js \
