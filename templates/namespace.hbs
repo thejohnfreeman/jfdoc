@@ -20,7 +20,10 @@
   {{/ul}}
 
   {{#each functions}}
-  <h3>{{name}}() <a href="#{{name}}" name="{{name}}">#</a></h3>
+  <h3>
+    {{name}}({{#join params ", "}}{{name}}{{/join}})
+    <a href="#{{name}}" name="{{name}}">#</a>
+  </h3>
   {{{description}}}
   {{/each}}
 {{/partial}}
