@@ -19,7 +19,8 @@
     "esprima" : "*",
     "markdown" : "*",
     "handlebars" : "*",
-    "jsparse" : "*"
+    "jsparse" : "*",
+    "pretty-data" : "*"
   },
 
   "scripts" : {
