@@ -18,8 +18,9 @@
     "wrench" : "*",
     "esprima" : "*",
     "markdown" : "*",
-    "dust" : "git://github.com/jeffbski/dustjs.git#amd",
-    "jsparse" : "*"
+    "handlebars" : "*",
+    "jsparse" : "*",
+    "pretty-data" : "*"
   },
 
   "scripts" : {
