@@ -32,7 +32,8 @@ doc :
 
 .PHONY : clean clean-obj clean-exe clean-doc
 
-clean : clean-obj clean-exe
+clean : clean-obj clean-exe clean-doc
+	-rm -rf build
 
 clean-obj :
 	@$(call defer,$(MAKEDIR)/Makefile.lib)
