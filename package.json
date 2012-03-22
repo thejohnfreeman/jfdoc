@@ -20,12 +20,14 @@
     "markdown" : "*",
     "handlebars" : "*",
     "jsparse" : "*",
-    "pretty-data" : "*"
+    "pretty-data" : "*",
+    "qunit" : "https://github.com/jquery/qunit.git",
+    "cli-color" : "*"
   },
 
   "scripts" : {
     "install" : "make",
-    "test" : "make doc"
+    "test" : "make test"
   },
 
   "preferGlobal" : true

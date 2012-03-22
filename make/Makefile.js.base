@@ -24,6 +24,8 @@ GZIP := gzip
 MAIN := $(TITLE).js
 MAINPLUS := $(TITLE)-plus.js
 
+OBJDIR := $(OBJDIR)/build-$(TITLE)
+
 # Headers hold m4 macros, so they are dependencies for all objects
 OBJECTS := $(addprefix $(OBJDIR)/,$(SOURCES))
 SOURCES := $(addprefix $(SRCDIR)/,$(SOURCES))

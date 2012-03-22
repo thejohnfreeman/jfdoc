@@ -1,0 +1,86 @@
+#!/usr/bin/env node
+
+var clc = require("cli-color");
+var qunit = require("qunit");
+qunit.config.autorun = false;
+
+/****************************************************/
+/* Command line arguments. */
+
+var skipPassing = false;
+
+var options = process.argv.slice(2);
+while (options.length > 0) {
+  var option = options.shift();
+  if (option === "--skip-passing") skipPassing = true;
+}
+
+/****************************************************/
+/* Suite report. */
+
+var isDone = false;
+
+qunit.done(function ($) {
+  if (isDone) return;
+  isDone = true;
+  console.log("total : (" + clc.red($.failed.toString()) + ", " +
+    clc.green($.passed.toString()) + ", " + $.total + ")");
+});
+
+/****************************************************/
+/* Module report. */
+
+var moduleName = "";
+
+qunit.moduleStart(function ($) {
+  moduleName = $.name;
+});
+
+qunit.moduleDone(function ($) {
+  if (isDone) return;
+  console.log((($.failed > 0) ? clc.red("!! ") : clc.green("OK ")) +
+    clc.blue($.name) + " : (" + clc.red($.failed.toString()) + ", " +
+    clc.green($.passed.toString()) + ", " + $.total + ")");
+});
+
+/****************************************************/
+/* Test report. */
+
+var testLog = "";
+
+qunit.log(function ($) {
+  if (skipPassing && $.result) return;
+  testLog += "\n   " + ($.result ? clc.green("OK") : clc.red("!!")) +
+    " " + $.message;
+  /* $.actual and $.expected will both be undefined if we are logging an
+   * unasserted failure, like an uncaught exception. */
+  if (!$.result && $.actual !== $.expected) {
+    testLog += "\n      " + clc.yellow("actual  ") + " : " +
+      clc.red(JSON.stringify($.actual));
+    testLog += "\n      " + clc.yellow("expected") + " : " +
+      clc.green(JSON.stringify($.expected));
+  }
+});
+
+qunit.testDone(function ($) {
+  if (skipPassing && !$.failed) return;
+  console.log((($.failed > 0) ? "   " : clc.green("OK ")) +
+    clc.blue(moduleName + "." + $.name) + " : (" +
+    clc.red($.failed.toString()) + ", " + clc.green($.passed.toString()) +
+    ", " + $.total + ")" + testLog);
+  testLog = "";
+});
+
+/****************************************************/
+
+[
+  "file",
+  "namespace",
+  "function",
+  "param"
+].map(function (name) {
+  require("./cases/" + name);
+});
+
+qunit.start();
+

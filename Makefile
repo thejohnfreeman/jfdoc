@@ -7,7 +7,7 @@ include $(MAKEDIR)/Makefile.common
 ##################################################
 # targets
 
-.PHONY : all debug release plus syntax doc 
+.PHONY : all debug release plus syntax doc test
 
 all :
 	@$(call defer,$(MAKEDIR)/Makefile.lib)
@@ -27,12 +27,16 @@ syntax :
 doc :
 	@$(call defer,$(MAKEDIR)/Makefile.lib)
 
+test :
+	@./test/run --skip-passing
+
 ##################################################
 # cleaning
 
 .PHONY : clean clean-obj clean-exe clean-doc
 
-clean : clean-obj clean-exe
+clean : clean-obj clean-exe clean-doc
+	-rm -rf build
 
 clean-obj :
 	@$(call defer,$(MAKEDIR)/Makefile.lib)
