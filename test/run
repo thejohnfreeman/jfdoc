@@ -76,6 +76,7 @@ qunit.testDone(function ($) {
 [
   "file",
   "namespace",
+  "function",
 ].map(function (name) {
   require("./cases/" + name);
 });
