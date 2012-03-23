@@ -69,7 +69,7 @@ $(MAIN).gz : clean-obj $(OBJECTS)
 	-rm -rf $(OBJDIR)
 
 doc : clean-doc
-	./jfdoc $(SOURCES)
+	jfdoc $(SOURCES)
 
 ##################################################
 # cleaning

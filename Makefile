@@ -19,7 +19,6 @@ release :
 	@$(call defer,$(MAKEDIR)/Makefile.lib)
 
 doc :
-	-ln -s bin/jfdoc
 	@$(call defer,$(MAKEDIR)/Makefile.lib)
 
 test :
@@ -38,7 +37,6 @@ clean-obj :
 
 clean-exe :
 	@$(call defer,$(MAKEDIR)/Makefile.lib)
-	-rm -f jfdoc
 
 clean-doc :
 	@$(call defer,$(MAKEDIR)/Makefile.lib)
