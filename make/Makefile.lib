@@ -13,8 +13,8 @@ TITLE := jfdoc
 
 SRCDIR := lib
 SOURCES := \
-  attach.js \
-  handlebars.js \
+  utility/esprima.js \
+  utility/handlebars.js \
   jfdoc.js \
   source.js \
   tags/tags.js \
