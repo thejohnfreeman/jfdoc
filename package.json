@@ -20,7 +20,10 @@
     "markdown" : "*",
     "handlebars" : "*",
     "jsparse" : "*",
-    "pretty-data" : "*",
+    "pretty-data" : "*"
+  },
+
+  "devDependencies" : {
     "qunit" : "https://github.com/jquery/qunit.git",
     "cli-color" : "*"
   },
