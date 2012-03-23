@@ -3,10 +3,7 @@
   var fs = require("fs");
   var q = require("qunit");
 
-  var log = console.log;
-  console.log = function () {};
-  require("../jfdoc");
-  console.log = log;
+  var jfdoc = require("../jfdoc.js");
 
   exports.parse = function parse(filename) {
     var log = console.log;
