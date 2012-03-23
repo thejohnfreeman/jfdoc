@@ -23,7 +23,7 @@
   q.module("param");
 
   q.test("placement", function () {
-    var symbols = help.parse("function.js");
+    var symbols = help.parse("param.js");
     var Foo1 = symbols.globals.decls.Foo1;
 
     q.expect(2);
@@ -32,20 +32,20 @@
   });
 
   q.test("order", function () {
-    var symbols = help.parse("function.js");
+    var symbols = help.parse("param.js");
     var Foo1 = symbols.globals.decls.Foo1;
 
     q.expect(3);
-    q.strictEqual(Foo1.params[0].name, "one",
+    q.strictEqual(Foo1.params[0].name, "zero",
       "parameters in declaration order");
-    q.strictEqual(Foo1.params[1].name, "two",
+    q.strictEqual(Foo1.params[1].name, "one",
       "parameters in declaration order");
-    q.strictEqual(Foo1.params[2].name, "three",
+    q.strictEqual(Foo1.params[2].name, "two",
       "parameters in declaration order");
   });
 
   q.test("types", function () {
-    var symbols = help.parse("function.js");
+    var symbols = help.parse("param.js");
     var Foo1 = symbols.globals.decls.Foo1;
 
     q.expect(7);
@@ -65,13 +65,13 @@
   });
 
   q.test("description", function () {
-    var symbols = help.parse("function.js");
+    var symbols = help.parse("param.js");
     var Foo1 = symbols.globals.decls.Foo1;
 
     q.expect(4);
-    q.strictEqual(Foo1.params[0].description, "Untyped parameter", "matches");
+    q.strictEqual(Foo1.params[0].description, "Untyped parameter.", "matches");
 
-    q.strictEqual(Foo1.params[1].description, "General description",
+    q.strictEqual(Foo1.params[1].description, "General description.",
       "matches");
     q.strictEqual(Foo1.params[1].types[0].description, "Typed parameter.",
       "matches");

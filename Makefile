@@ -7,7 +7,7 @@ include $(MAKEDIR)/Makefile.common
 ##################################################
 # targets
 
-.PHONY : all debug release plus syntax doc test
+.PHONY : all debug release doc test
 
 all :
 	@$(call defer,$(MAKEDIR)/Makefile.lib)
@@ -18,13 +18,8 @@ debug :
 release :
 	@$(call defer,$(MAKEDIR)/Makefile.lib)
 
-plus :
-	@$(call defer,$(MAKEDIR)/Makefile.lib)
-
-syntax :
-	@$(call defer,$(MAKEDIR)/Makefile.lib)
-
 doc :
+	-ln -s bin/jfdoc
 	@$(call defer,$(MAKEDIR)/Makefile.lib)
 
 test :
@@ -43,6 +38,7 @@ clean-obj :
 
 clean-exe :
 	@$(call defer,$(MAKEDIR)/Makefile.lib)
+	-rm -f jfdoc
 
 clean-doc :
 	@$(call defer,$(MAKEDIR)/Makefile.lib)

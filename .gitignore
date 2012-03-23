@@ -1,7 +1,7 @@
 .*.swp
-build
-node_modules
-jfdoc.js
-jfdoc
-doc
+/build
+/node_modules
+/jfdoc.js
+/jfdoc
+/doc
 
