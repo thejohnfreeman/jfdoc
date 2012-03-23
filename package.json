@@ -12,7 +12,7 @@
     "url" : "https://github.com/thejohnfreeman/jfdoc/issues"
   },
 
-  "bin" : "jfdoc",
+  "bin" : "bin/jfdoc",
 
   "dependencies" : {
     "wrench" : "*",
