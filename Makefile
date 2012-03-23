@@ -7,7 +7,7 @@ include $(MAKEDIR)/Makefile.common
 ##################################################
 # targets
 
-.PHONY : all debug release plus syntax doc test
+.PHONY : all debug release doc test
 
 all :
 	@$(call defer,$(MAKEDIR)/Makefile.lib)
@@ -16,12 +16,6 @@ debug :
 	@$(call defer,$(MAKEDIR)/Makefile.lib)
 
 release :
-	@$(call defer,$(MAKEDIR)/Makefile.lib)
-
-plus :
-	@$(call defer,$(MAKEDIR)/Makefile.lib)
-
-syntax :
 	@$(call defer,$(MAKEDIR)/Makefile.lib)
 
 doc :

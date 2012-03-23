@@ -10,12 +10,10 @@
 ##################################################
 # automatic configuration
 
-export ALL
 export TITLE
 export SRCDIR
 export HEADERS
 export SOURCES
-export THIRD_PARTY_SOURCES
 export OBJDIR
 export DOCDIR
 
@@ -26,8 +24,6 @@ DEFERRED_TARGETS := \
 	all \
 	debug \
 	release \
-	plus \
-	syntax \
 	doc \
 	clean \
 	clean-obj \
