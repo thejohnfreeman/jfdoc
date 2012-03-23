@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 /**
  * JavaScript documentation generator.
  *
@@ -7,6 +9,7 @@
 (function () {
 
   var fs = require("fs");
+  var jfdoc = require("../jfdoc.js");
 
   /* TODO: Parse other command line options for configuration. */
   var filenames = process.argv.slice(2);

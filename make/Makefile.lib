@@ -1,4 +1,4 @@
-# Makefile for the JSDoc application.
+# Makefile for the JFDoc library.
 
 include $(MAKEDIR)/Makefile.common
 include $(MAKEDIR)/Makefile.js
@@ -11,12 +11,11 @@ TITLE := jfdoc
 ##################################################
 # optional configuration
 
-ALL := app
-
 SRCDIR := lib
 SOURCES := \
-  jfdoc.js \
   attach.js \
+  handlebars.js \
+  jfdoc.js \
   source.js \
   tags/tags.js \
   tags/general.js \
@@ -27,14 +26,11 @@ SOURCES := \
   parse.js \
   generate/generate.js \
   generate/files.js \
-  generate/namespace.js \
-  main.js
+  generate/namespace.js
 
 HEADERS := \
 
 OBJDIR := build
-
-THIRD_PARTY_SOURCES := \
 
 DOCDIR := doc
 

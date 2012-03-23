@@ -12,19 +12,22 @@
     "url" : "https://github.com/thejohnfreeman/jfdoc/issues"
   },
 
-  "bin" : "jfdoc",
+  "bin" : "bin/jfdoc",
 
   "dependencies" : {
     "wrench" : "*",
     "esprima" : "*",
     "markdown" : "*",
-    "dust" : "git://github.com/jeffbski/dustjs.git#amd",
-    "jsparse" : "*"
+    "handlebars" : "*",
+    "jsparse" : "*",
+    "pretty-data" : "*",
+    "qunit" : "https://github.com/jquery/qunit.git",
+    "cli-color" : "*"
   },
 
   "scripts" : {
     "install" : "make",
-    "test" : "make doc"
+    "test" : "make test"
   },
 
   "preferGlobal" : true
