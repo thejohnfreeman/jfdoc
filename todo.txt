@@ -2,7 +2,7 @@
 OK author
 -- argument: deprecated synonym for param
    borrows
-   class
+OK class
    constant
    constructor
    constructs

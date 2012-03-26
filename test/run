@@ -79,6 +79,7 @@ qunit.testDone(function ($) {
   "function",
   "param",
   "returns",
+  "class",
 ].map(function (name) {
   require("./cases/" + name);
 });
