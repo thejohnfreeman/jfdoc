@@ -29,6 +29,7 @@ SOURCES := \
   tags/namespace.js \
   tags/function.js \
   tags/param.js \
+  tags/class.js \
   generate/generate.js \
   generate/files.js \
   generate/namespace.js
