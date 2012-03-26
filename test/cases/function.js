@@ -20,30 +20,30 @@
 
   q.module("function");
 
-  q.test("function", function () {
-    var symbols = help.parse("function.js");
+  q.test("placement", function () {
+    var decls = help.parse("function.js").globals.decls;
 
     q.expect(3);
-    q.strictEqual(Object.keys(symbols.globals.decls).length, 2,
+    q.strictEqual(Object.keys(decls).length, 2,
       "number of functions");
-    q.ok(symbols.globals.decls.Foo1, "Foo1 exists");
-    q.ok(symbols.globals.decls.Foo2, "Foo2 exists");
+    q.ok(decls.Foo1, "Foo1 exists");
+    q.ok(decls.Foo2, "Foo2 exists");
   });
 
-  q.test("function", function () {
-    var symbols = help.parse("function.js");
+  q.test("kind", function () {
+    var decls = help.parse("function.js").globals.decls;
 
     q.expect(2);
-    q.strictEqual(symbols.globals.decls.Foo1.kind, "function", "matches");
-    q.strictEqual(symbols.globals.decls.Foo2.kind, "function", "matches");
+    q.strictEqual(decls.Foo1.kind, "function", "matches");
+    q.strictEqual(decls.Foo2.kind, "function", "matches");
   });
 
-  q.test("function", function () {
-    var symbols = help.parse("function.js");
+  q.test("name", function () {
+    var decls = help.parse("function.js").globals.decls;
 
-    q.expect(2);
-    q.strictEqual(symbols.globals.decls.Foo1.baseName, "Foo1", "matches");
-    q.strictEqual(symbols.globals.decls.Foo2.baseName, "Foo2", "matches");
+    q.expect(4);
+    help.stringEqual(decls.Foo1.baseName, "Foo1");
+    help.stringEqual(decls.Foo2.baseName, "Foo2");
   });
 
 }());
