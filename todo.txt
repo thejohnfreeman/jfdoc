@@ -1,0 +1,37 @@
+   augments
+OK author
+-- argument: deprecated synonym for param
+   borrows
+   class
+   constant
+   constructor
+   constructs
+   default
+   deprecated
+-- description: descriptions always come before the first tag
+   event
+   example
+   extends
+   field
+++ file: used to indicate file doclet if author missing
+-- fileOverview: just use normal description
+OK function: used to indicate function if params or return missing
+   ignore
+   inner
+   lends
+   link
+OK memberOf: full scope qualifier
+OK name: either base name or fully qualified name, nothing in-between
+OK namespace: argument is optional name instead of description
+OK param: polymorphic parameters, alternative syntax order of name and type
+   private
+   property
+   public
+   requires
+OK returns
+   see
+   since
+   static
+   throws
+   type
+   version
