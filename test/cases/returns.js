@@ -25,24 +25,26 @@
     var decls = help.parse("returns.js").globals.decls;
 
     q.expect(2);
-    q.ok(decls.Foo1.returns, "Foo1 exists");
-    q.ok(decls.Foo2.returns, "Foo2 exists");
+    q.ok(decls.Foo1.doclet.returns, "Foo1 exists");
+    q.ok(decls.Foo2.doclet.returns, "Foo2 exists");
   });
 
   q.test("type", function () {
     var decls = help.parse("returns.js").globals.decls;
 
     q.expect(4);
-    help.stringEqual(decls.Foo1.returns.type, "Boolean")
-    help.stringEqual(decls.Foo2.returns.type, "")
+    help.stringEqual(decls.Foo1.doclet.returns.type, "Boolean");
+    help.stringEqual(decls.Foo2.doclet.returns.type, "");
   });
 
   q.test("description", function () {
     var decls = help.parse("returns.js").globals.decls;
 
     q.expect(4);
-    help.stringEqual(decls.Foo1.returns.description, "True if the moon is full.")
-    help.stringEqual(decls.Foo2.returns.description, "Nothing.")
+    help.stringEqual(decls.Foo1.doclet.returns.description,
+      "True if the moon is full.");
+    help.stringEqual(decls.Foo2.doclet.returns.description,
+      "Nothing.");
   });
 
 }());

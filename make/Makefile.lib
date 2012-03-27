@@ -20,6 +20,8 @@ SOURCES := \
   documenter.js \
   ast/file.js \
   ast/decl.js \
+  ast/scope.js \
+  ast/doclet.js \
   parser/parser.js \
   parser/source.js \
   parser/symbols.js \

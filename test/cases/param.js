@@ -23,7 +23,7 @@
   q.module("param");
 
   q.test("placement", function () {
-    var Foo1 = help.parse("param.js").globals.decls.Foo1;
+    var Foo1 = help.parse("param.js").globals.decls.Foo1.doclet;
 
     q.expect(2);
     q.ok(Array.isArray(Foo1.params), "parameters exist");
@@ -31,7 +31,7 @@
   });
 
   q.test("order", function () {
-    var Foo1 = help.parse("param.js").globals.decls.Foo1;
+    var Foo1 = help.parse("param.js").globals.decls.Foo1.doclet;
 
     q.expect(3);
     q.strictEqual(Foo1.params[0].name, "zero",
@@ -43,7 +43,7 @@
   });
 
   q.test("types", function () {
-    var Foo1 = help.parse("param.js").globals.decls.Foo1;
+    var Foo1 = help.parse("param.js").globals.decls.Foo1.doclet;
 
     q.expect(10);
     q.strictEqual(Foo1.params[0].types.length, 0,
@@ -61,7 +61,7 @@
   });
 
   q.test("description", function () {
-    var Foo1 = help.parse("param.js").globals.decls.Foo1;
+    var Foo1 = help.parse("param.js").globals.decls.Foo1.doclet;
 
     q.expect(7);
     help.stringEqual(Foo1.params[0].description, "Untyped parameter.");
