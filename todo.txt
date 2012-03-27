@@ -4,8 +4,8 @@ OK author
    borrows
 OK class
    constant
-   constructor
-   constructs
+OK constructor
+-- constructs: use @constructor
    default
    deprecated
 -- description: descriptions always come before the first tag

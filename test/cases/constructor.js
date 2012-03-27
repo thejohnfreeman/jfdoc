@@ -1,11 +1,11 @@
 (function () {
 
   /**
-   * @class Foo1
+   * @constructor Foo1
    */
 
   /**
-   * @class
+   * @constructor
    * @name Foo2
    */
 
@@ -16,14 +16,14 @@
   var q = require("qunit");
   var help = require("../helpers");
 
-  q.module("class");
+  q.module("constructor");
 
   q.test("placement", function () {
-    var decls = help.parse("class.js").globals.decls;
+    var decls = help.parse("constructor.js").globals.decls;
 
     q.expect(5);
     q.strictEqual(Object.keys(decls).length, 2,
-      "number of classes");
+      "number of constructors");
     q.ok(decls.Foo1, "Foo1 exists");
     q.ok(decls.Foo1 instanceof jfdoc.Scope, "Foo1 is a scope");
     q.ok(decls.Foo2, "Foo2 exists");
@@ -31,19 +31,17 @@
   });
 
   q.test("kind", function () {
-    var decls = help.parse("class.js").globals.decls;
+    var decls = help.parse("constructor.js").globals.decls;
 
-    q.expect(4);
-    q.ok(decls.Foo1.classDoclet, "Foo1 has a class doclet");
-    q.ok(decls.Foo1.classDoclet.kind instanceof jfdoc.ClassKind,
-      "Foo1 is a class");
-    q.ok(decls.Foo2.classDoclet, "Foo2 has a class doclet");
-    q.ok(decls.Foo2.classDoclet.kind instanceof jfdoc.ClassKind,
-      "Foo2 is a class");
+    q.expect(2);
+    q.ok(decls.Foo1.doclet.kind instanceof jfdoc.ConstructorKind,
+      "Foo1 is a constructor");
+    q.ok(decls.Foo2.doclet.kind instanceof jfdoc.ConstructorKind,
+      "Foo2 is a constructor");
   });
 
   q.test("name", function () {
-    var decls = help.parse("class.js").globals.decls;
+    var decls = help.parse("constructor.js").globals.decls;
 
     q.expect(4);
     help.stringEqual(decls.Foo1.name, "Foo1");

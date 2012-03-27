@@ -69,7 +69,8 @@
     help.stringEqual(Foo1.params[1].description, "General description.");
     help.stringEqual(Foo1.params[1].types[0].description, "Typed parameter.");
 
-    q.strictEqual(Foo1.params[2].description, undefined, "matches");
+    q.strictEqual(Foo1.params[2].description, undefined,
+      "expected empty description");
   });
 
 }());

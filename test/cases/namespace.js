@@ -37,16 +37,16 @@
     var decls = help.parse("namespace.js").globals.decls;
 
     q.expect(2);
-    q.ok(decls.Foo1.doclet.kind instanceof jfdoc.NamespaceKind, "matches");
-    q.ok(decls.Foo2.doclet.kind instanceof jfdoc.NamespaceKind, "matches");
+    q.ok(decls.Foo1.doclet.kind instanceof jfdoc.NamespaceKind, "Foo1");
+    q.ok(decls.Foo2.doclet.kind instanceof jfdoc.NamespaceKind, "Foo2");
   });
 
   q.test("name", function () {
     var decls = help.parse("namespace.js").globals.decls;
 
     q.expect(2);
-    q.strictEqual(decls.Foo1.name, "Foo1", "matches");
-    q.strictEqual(decls.Foo2.name, "Foo2", "matches");
+    q.strictEqual(decls.Foo1.name, "Foo1", "Foo1");
+    q.strictEqual(decls.Foo2.name, "Foo2", "Foo2");
   });
 
 }());

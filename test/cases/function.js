@@ -36,8 +36,8 @@
     var decls = help.parse("function.js").globals.decls;
 
     q.expect(2);
-    q.ok(decls.Foo1.doclet.kind instanceof jfdoc.FunctionKind, "matches");
-    q.ok(decls.Foo2.doclet.kind instanceof jfdoc.FunctionKind, "matches");
+    q.ok(decls.Foo1.doclet.kind instanceof jfdoc.FunctionKind, "Foo1");
+    q.ok(decls.Foo2.doclet.kind instanceof jfdoc.FunctionKind, "Foo2");
   });
 
   q.test("name", function () {
