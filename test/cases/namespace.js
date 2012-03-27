@@ -37,8 +37,8 @@
     var decls = help.parse("namespace.js").globals.decls;
 
     q.expect(2);
-    q.strictEqual(decls.Foo1.doclet.kind, "namespace", "matches");
-    q.strictEqual(decls.Foo2.doclet.kind, "namespace", "matches");
+    q.ok(decls.Foo1.doclet.kind instanceof jfdoc.NamespaceKind, "matches");
+    q.ok(decls.Foo2.doclet.kind instanceof jfdoc.NamespaceKind, "matches");
   });
 
   q.test("name", function () {

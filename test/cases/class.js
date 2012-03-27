@@ -33,9 +33,13 @@
   q.test("kind", function () {
     var decls = help.parse("class.js").globals.decls;
 
-    q.expect(2);
-    q.strictEqual(decls.Foo1.doclet.kind, "class", "matches");
-    q.strictEqual(decls.Foo2.doclet.kind, "class", "matches");
+    q.expect(4);
+    q.ok(decls.Foo1.classDoclet, "Foo1 has a class doclet");
+    q.ok(decls.Foo1.classDoclet.kind instanceof jfdoc.ClassKind,
+      "Foo1 class doclet has proper kind");
+    q.ok(decls.Foo2.classDoclet, "Foo2 has a class doclet");
+    q.ok(decls.Foo2.classDoclet.kind instanceof jfdoc.ClassKind,
+      "Foo2 class doclet has proper kind");
   });
 
   q.test("name", function () {
