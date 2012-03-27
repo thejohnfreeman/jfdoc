@@ -20,13 +20,14 @@ OK function: used to indicate function if params or return missing
    inner
    lends
    link
+++ method: used to indicate method doclet
 OK memberOf: full scope qualifier
 OK name: either base name or fully qualified name, nothing in-between
 OK namespace: argument is optional name instead of description
 OK param: polymorphic parameters, alternative syntax order of name and type
-   private
+OK private
    property
-   public
+OK public
    requires
 OK returns
    see
