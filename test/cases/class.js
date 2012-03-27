@@ -1,15 +1,13 @@
 (function () {
 
   /**
-   * @function Foo1
+   * @class Foo1
    */
-  var Foo1 = function () {};
 
   /**
-   * @function
+   * @class
    * @name Foo2
    */
-  var Foo2 = function () {};
 
 }());
 
@@ -18,14 +16,14 @@
   var q = require("qunit");
   var help = require("../helpers");
 
-  q.module("function");
+  q.module("class");
 
   q.test("placement", function () {
-    var decls = help.parse("function.js").globals.decls;
+    var decls = help.parse("class.js").globals.decls;
 
     q.expect(5);
     q.strictEqual(Object.keys(decls).length, 2,
-      "number of functions");
+      "number of classes");
     q.ok(decls.Foo1, "Foo1 exists");
     q.ok(decls.Foo1 instanceof jfdoc.Scope, "Foo1 is a scope");
     q.ok(decls.Foo2, "Foo2 exists");
@@ -33,15 +31,15 @@
   });
 
   q.test("kind", function () {
-    var decls = help.parse("function.js").globals.decls;
+    var decls = help.parse("class.js").globals.decls;
 
     q.expect(2);
-    q.strictEqual(decls.Foo1.doclet.kind, "function", "matches");
-    q.strictEqual(decls.Foo2.doclet.kind, "function", "matches");
+    q.strictEqual(decls.Foo1.doclet.kind, "class", "matches");
+    q.strictEqual(decls.Foo2.doclet.kind, "class", "matches");
   });
 
   q.test("name", function () {
-    var decls = help.parse("function.js").globals.decls;
+    var decls = help.parse("class.js").globals.decls;
 
     q.expect(4);
     help.stringEqual(decls.Foo1.name, "Foo1");

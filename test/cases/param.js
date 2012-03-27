@@ -23,8 +23,7 @@
   q.module("param");
 
   q.test("placement", function () {
-    var symbols = help.parse("param.js");
-    var Foo1 = symbols.globals.decls.Foo1;
+    var Foo1 = help.parse("param.js").globals.decls.Foo1.doclet;
 
     q.expect(2);
     q.ok(Array.isArray(Foo1.params), "parameters exist");
@@ -32,8 +31,7 @@
   });
 
   q.test("order", function () {
-    var symbols = help.parse("param.js");
-    var Foo1 = symbols.globals.decls.Foo1;
+    var Foo1 = help.parse("param.js").globals.decls.Foo1.doclet;
 
     q.expect(3);
     q.strictEqual(Foo1.params[0].name, "zero",
@@ -45,36 +43,31 @@
   });
 
   q.test("types", function () {
-    var symbols = help.parse("param.js");
-    var Foo1 = symbols.globals.decls.Foo1;
+    var Foo1 = help.parse("param.js").globals.decls.Foo1.doclet;
 
-    q.expect(7);
+    q.expect(10);
     q.strictEqual(Foo1.params[0].types.length, 0,
       "number of parameter types");
 
     q.ok(Array.isArray(Foo1.params[1].types), "parameter types exist");
     q.strictEqual(Foo1.params[1].types.length, 1,
       "number of parameter types");
-    q.strictEqual(Foo1.params[1].types[0].type, "Car", "matches");
+    help.stringEqual(Foo1.params[1].types[0].type, "Car");
 
     q.strictEqual(Foo1.params[2].types.length, 2,
       "number of parameter types");
-    q.strictEqual(Foo1.params[2].types[0].type, "String -> Car", "matches");
-    q.strictEqual(Foo1.params[2].types[1].type, "Hash {String -> Car}",
-      "matches");
+    help.stringEqual(Foo1.params[2].types[0].type, "String -> Car");
+    help.stringEqual(Foo1.params[2].types[1].type, "Hash {String -> Car}");
   });
 
   q.test("description", function () {
-    var symbols = help.parse("param.js");
-    var Foo1 = symbols.globals.decls.Foo1;
+    var Foo1 = help.parse("param.js").globals.decls.Foo1.doclet;
 
-    q.expect(4);
-    q.strictEqual(Foo1.params[0].description, "Untyped parameter.", "matches");
+    q.expect(7);
+    help.stringEqual(Foo1.params[0].description, "Untyped parameter.");
 
-    q.strictEqual(Foo1.params[1].description, "General description.",
-      "matches");
-    q.strictEqual(Foo1.params[1].types[0].description, "Typed parameter.",
-      "matches");
+    help.stringEqual(Foo1.params[1].description, "General description.");
+    help.stringEqual(Foo1.params[1].types[0].description, "Typed parameter.");
 
     q.strictEqual(Foo1.params[2].description, undefined, "matches");
   });
