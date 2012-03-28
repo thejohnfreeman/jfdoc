@@ -34,10 +34,8 @@
     var decls = help.parse("constructor.js").globals.decls;
 
     q.expect(2);
-    q.ok(decls.Foo1.doclet.kind instanceof jfdoc.ConstructorKind,
-      "Foo1 is a constructor");
-    q.ok(decls.Foo2.doclet.kind instanceof jfdoc.ConstructorKind,
-      "Foo2 is a constructor");
+    q.ok(decls.Foo1.doclet.kind === "constructor", "Foo1 is a constructor");
+    q.ok(decls.Foo2.doclet.kind === "constructor", "Foo2 is a constructor");
   });
 
   q.test("name", function () {

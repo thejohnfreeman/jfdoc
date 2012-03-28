@@ -35,11 +35,9 @@
 
     q.expect(4);
     q.ok(decls.Foo1.classDoclet, "Foo1 has a class doclet");
-    q.ok(decls.Foo1.classDoclet.kind instanceof jfdoc.ClassKind,
-      "Foo1 is a class");
+    q.ok(decls.Foo1.classDoclet.kind === "class", "Foo1 is a class");
     q.ok(decls.Foo2.classDoclet, "Foo2 has a class doclet");
-    q.ok(decls.Foo2.classDoclet.kind instanceof jfdoc.ClassKind,
-      "Foo2 is a class");
+    q.ok(decls.Foo2.classDoclet.kind === "class", "Foo2 is a class");
   });
 
   q.test("name", function () {

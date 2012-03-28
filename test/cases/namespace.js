@@ -37,16 +37,16 @@
     var decls = help.parse("namespace.js").globals.decls;
 
     q.expect(2);
-    q.ok(decls.Foo1.doclet.kind instanceof jfdoc.NamespaceKind, "Foo1");
-    q.ok(decls.Foo2.doclet.kind instanceof jfdoc.NamespaceKind, "Foo2");
+    q.ok(decls.Foo1.doclet.kind === "namespace", "Foo1 has namespace kind");
+    q.ok(decls.Foo2.doclet.kind === "namespace", "Foo2 has namespace kind");
   });
 
   q.test("name", function () {
     var decls = help.parse("namespace.js").globals.decls;
 
-    q.expect(2);
-    q.strictEqual(decls.Foo1.name, "Foo1", "Foo1");
-    q.strictEqual(decls.Foo2.name, "Foo2", "Foo2");
+    q.expect(4);
+    help.stringEqual(decls.Foo1.name, "Foo1");
+    help.stringEqual(decls.Foo2.name, "Foo2");
   });
 
 }());
