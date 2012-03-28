@@ -11,10 +11,31 @@
   var fs = require("fs");
   var jfdoc = require("../jfdoc.js");
 
-  /* TODO: Parse other command line options for configuration. */
-  var filenames = process.argv.slice(2);
+  var parseOptions = function parseOptions(options, config) {
+    var m;
+    while (m = options[0].match(/^-([\w-]+)=(.*)$/)) {
+      console.log("command line option: " + m[1] + " = " + m[2]);
+      options.shift();
+      switch (m[1]) {
+        case "d": config.docDir = m[2]; break;
+        case "t": config.tmplDir = m[2]; break;
+        case "-": return;
+      }
+    }
+  };
 
-  var doccer = new jfdoc.Documenter();
+  /* Configuration defaults. */
+  var config = {
+    docDir : "doc",
+    tmplDir : __dirname + "/../templates"
+  };
+
+  var options = process.argv.slice(2);
+  parseOptions(options, config);
+  /* Trailing options are considered files. */
+  var filenames = options;
+
+  var doccer = new jfdoc.Documenter(config.docDir, config.tmplDir);
 
   filenames.forEach(function (filename) {
     try {

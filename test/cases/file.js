@@ -14,32 +14,31 @@
   q.test("placement", function () {
     var symbols = help.parse("file.js");
 
-    q.expect(3);
-    q.ok(symbols, "symbols");
-    q.ok(Array.isArray(symbols.files), "files");
+    q.expect(2);
     q.strictEqual(symbols.files.length, 1, "number of files");
+    q.ok(symbols.files[0] instanceof jfdoc.File, "is a file");
   });
 
   q.test("name", function () {
-    var symbols = help.parse("file.js");
+    var file = help.parse("file.js").files[0];
 
     q.expect(1);
-    q.strictEqual(symbols.files[0].name, "file.js", "matches");
+    q.strictEqual(file.name, "file.js", "has file name");
   });
 
   q.test("description", function () {
-    var symbols = help.parse("file.js");
+    var file = help.parse("file.js").files[0];
 
     q.expect(2);
-    help.stringEqual(symbols.files[0].doc.description,
+    help.stringEqual(file.doclet.description,
       "Description for the file.");
   });
 
   q.test("author", function () {
-    var symbols = help.parse("file.js");
+    var file = help.parse("file.js").files[0];
 
     q.expect(2);
-    help.stringEqual(symbols.files[0].doc.author, "John Smith");
+    help.tagsEqual(file.doclet.tags["author"], "name", ["John Smith"]);
   });
 
 }());

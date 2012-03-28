@@ -77,7 +77,10 @@ qunit.testDone(function ($) {
   "file",
   "namespace",
   "function",
-  "param"
+  "param",
+  "returns",
+  "class",
+  "constructor",
 ].map(function (name) {
   require("./cases/" + name);
 });

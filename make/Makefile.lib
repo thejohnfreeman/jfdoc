@@ -13,17 +13,26 @@ TITLE := jfdoc
 
 SRCDIR := lib
 SOURCES := \
-  attach.js \
-  handlebars.js \
+  utility/lang.js \
+  utility/esprima.js \
+  utility/handlebars.js \
   jfdoc.js \
-  source.js \
+  documenter.js \
+  ast/file.js \
+  ast/decl.js \
+  ast/scope.js \
+  ast/doclet.js \
+  parser/parser.js \
+  parser/source.js \
+  parser/symbols.js \
+  parser/type.js \
   tags/tags.js \
   tags/general.js \
   tags/file.js \
   tags/namespace.js \
   tags/function.js \
-  documenter.js \
-  parse.js \
+  tags/param.js \
+  tags/class.js \
   generate/generate.js \
   generate/files.js \
   generate/namespace.js

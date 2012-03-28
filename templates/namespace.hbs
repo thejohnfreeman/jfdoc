@@ -6,20 +6,26 @@
 
   <h3>Table of Contents <a href="#toc" name="toc">#</a></h3>
 
-  <h4>Functions</h4>
-  {{#ul functions}}
-    <a href="#{{name}}">{{name}}()</a>
-  {{/ul}}
+  {{#if functions}}
+    <h4>Functions</h4>
+    {{#ul functions}}
+      <a href="#{{name}}">{{name}}()</a>
+    {{/ul}}
+  {{/if}}
 
-  <h4>Classes</h4>
-  {{#ul classes}}
-    <a href="{{../name}}/{{name}}.html">{{name}}</a>
-  {{/ul}}
+  {{#if classes}}
+    <h4>Classes</h4>
+    {{#ul classes}}
+      <a href="{{../path}}/{{../name}}/{{name}}.html">{{name}}</a>
+    {{/ul}}
+  {{/if}}
 
-  <h4>Namespaces</h4>
-  {{#ul namespaces}}
-    <a href="{{../name}}/{{name}}.html">{{name}}</a>
-  {{/ul}}
+  {{#if namespaces}}
+    <h4>Namespaces</h4>
+    {{#ul namespaces}}
+      <a href="{{../path}}/{{../name}}/{{name}}.html">{{name}}</a>
+    {{/ul}}
+  {{/if}}
 
   {{#each functions}}
   <h3>
@@ -27,6 +33,12 @@
     <a href="#{{name}}" name="{{name}}">#</a>
   </h3>
   {{{description}}}
+  {{#with source}}
+<pre>{{file}}</pre>
+<pre class="brush: js; first-line: {{line}}">
+{{{code}}}
+</pre>
+  {{/with}}
   {{/each}}
 {{/partial}}
 

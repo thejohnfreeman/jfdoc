@@ -1,15 +1,13 @@
 (function () {
 
   /**
-   * @namespace Foo1
+   * @class Foo1
    */
-  var Foo1 = {};
 
   /**
-   * @namespace
+   * @class
    * @name Foo2
    */
-  var Foo2 = {};
 
 }());
 
@@ -18,15 +16,14 @@
   var q = require("qunit");
   var help = require("../helpers");
 
-  q.module("namespace");
+  q.module("class");
 
   q.test("placement", function () {
-    var decls = help.parse("namespace.js").globals.decls;
+    var decls = help.parse("class.js").globals.decls;
 
-    q.expect(6);
-    q.ok(decls, "global decls");
+    q.expect(5);
     q.strictEqual(Object.keys(decls).length, 2,
-      "number of namespaces");
+      "number of classes");
     q.ok(decls.Foo1, "Foo1 exists");
     q.ok(decls.Foo1 instanceof jfdoc.Scope, "Foo1 is a scope");
     q.ok(decls.Foo2, "Foo2 exists");
@@ -34,15 +31,17 @@
   });
 
   q.test("kind", function () {
-    var decls = help.parse("namespace.js").globals.decls;
+    var decls = help.parse("class.js").globals.decls;
 
-    q.expect(2);
-    q.ok(decls.Foo1.doclet.kind === "namespace", "Foo1 has namespace kind");
-    q.ok(decls.Foo2.doclet.kind === "namespace", "Foo2 has namespace kind");
+    q.expect(4);
+    q.ok(decls.Foo1.classDoclet, "Foo1 has a class doclet");
+    q.ok(decls.Foo1.classDoclet.kind === "class", "Foo1 is a class");
+    q.ok(decls.Foo2.classDoclet, "Foo2 has a class doclet");
+    q.ok(decls.Foo2.classDoclet.kind === "class", "Foo2 is a class");
   });
 
   q.test("name", function () {
-    var decls = help.parse("namespace.js").globals.decls;
+    var decls = help.parse("class.js").globals.decls;
 
     q.expect(4);
     help.stringEqual(decls.Foo1.name, "Foo1");
