@@ -7,13 +7,16 @@
 
   exports.parse = function parse(filename) {
     var log = console.log;
-    console.log = function () {};
 
-    var doccer = new jfdoc.Documenter();
-    var source = fs.readFileSync("test/cases/" + filename, "utf8");
-    doccer.add(filename, source);
+    try {
+      console.log = function () {};
+      var doccer = new jfdoc.Documenter();
+      var source = fs.readFileSync("test/cases/" + filename, "utf8");
+      doccer.add(filename, source);
+    } finally {
+      console.log = log;
+    }
 
-    console.log = log;
     return doccer.symbols;
   };
 
