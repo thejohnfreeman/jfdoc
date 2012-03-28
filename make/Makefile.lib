@@ -21,7 +21,6 @@ SOURCES := \
   ast/file.js \
   ast/decl.js \
   ast/scope.js \
-  ast/kind.js \
   ast/doclet.js \
   parser/parser.js \
   parser/source.js \
