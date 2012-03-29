@@ -22,6 +22,7 @@ SOURCES := \
   ast/decl.js \
   ast/scope.js \
   ast/doclet.js \
+  ast/symtab.js \
   parser/parser.js \
   parser/source.js \
   parser/symbols.js \
@@ -33,9 +34,9 @@ SOURCES := \
   tags/function.js \
   tags/param.js \
   tags/class.js \
-  generate/generate.js \
-  generate/files.js \
-  generate/namespace.js
+  generator/generator.js \
+  generator/files.js \
+  generator/namespace.js
 
 HEADERS := \
 
