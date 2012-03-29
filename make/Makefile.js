@@ -12,10 +12,8 @@
 
 export TITLE
 export SRCDIR
-export HEADERS
 export SOURCES
-export OBJDIR
-export DOCDIR
+export HEADERS
 
 ##################################################
 # targets

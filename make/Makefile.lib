@@ -39,8 +39,3 @@ SOURCES := \
 
 HEADERS := \
 
-OBJDIR := build
-
-DOCDIR := doc
-
-
