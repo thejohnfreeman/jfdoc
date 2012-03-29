@@ -8,16 +8,20 @@
   exports.parse = function parse(filename) {
     var log = console.log;
 
+    var symbols = new jfdoc.SymbolTable();
+
     try {
       console.log = function () {};
-      var doccer = new jfdoc.Documenter();
+      var parser = new jfdoc.Parser(symbols, {
+        spacesPerTab : 2
+      });
       var source = fs.readFileSync("test/cases/" + filename, "utf8");
-      doccer.add(filename, source);
+      parser.parseFile(filename, source);
     } finally {
       console.log = log;
     }
 
-    return doccer.symbols;
+    return symbols;
   };
 
   exports.stringEqual = function stringEqual(actual, expected) {

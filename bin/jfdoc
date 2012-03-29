@@ -18,7 +18,7 @@
       options.shift();
       switch (m[1]) {
         case "d": config.docDir = m[2]; break;
-        case "t": config.tmplDir = m[2]; break;
+        case "t": config.templateDir = m[2]; break;
         case "-": return;
       }
     }
@@ -26,8 +26,8 @@
 
   /* Configuration defaults. */
   var config = {
-    docDir : "doc",
-    tmplDir : __dirname + "/../templates"
+    docDir      : "doc",
+    templateDir : __dirname + "/../templates"
   };
 
   var options = process.argv.slice(2);
@@ -35,7 +35,7 @@
   /* Trailing options are considered files. */
   var filenames = options;
 
-  var doccer = new jfdoc.Documenter(config.docDir, config.tmplDir);
+  var doccer = new jfdoc.Documenter(config);
 
   filenames.forEach(function (filename) {
     try {
