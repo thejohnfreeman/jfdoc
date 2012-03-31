@@ -25,6 +25,7 @@ SOURCES := \
   ast/scope.js \
   ast/doclet.js \
   ast/symtab.js \
+  ast/scopedIterator.js \
   parser/parser.js \
   parser/source.js \
   parser/symbols.js \
