@@ -19,6 +19,7 @@ SOURCES := \
   jfdoc.js \
   documenter.js \
   ast/file.js \
+  ast/name.js \
   ast/decl.js \
   ast/scope.js \
   ast/doclet.js \
