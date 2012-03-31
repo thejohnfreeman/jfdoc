@@ -14,7 +14,8 @@ TITLE := jfdoc
 SRCDIR := lib
 SOURCES := \
   utility/lang.js \
-  utility/esprima.js \
+  utility/esprima/treeIterator.js \
+  utility/esprima/commentIterator.js \
   utility/handlebars.js \
   jfdoc.js \
   documenter.js \
