@@ -12,21 +12,21 @@
     {{#if functions}}
       <h4>Functions</h4>
       {{#ul functions}}
-        <a href="#{{name}}">{{name}}()</a>
+        <a href="{{href}}">{{name}}()</a>
       {{/ul}}
     {{/if}}
 
     {{#if classes}}
       <h4>Classes</h4>
       {{#ul classes}}
-        <a href="{{../path}}/{{../name}}/{{name}}.html">{{name}}</a>
+        <a href="{{href}}">{{name}}</a>
       {{/ul}}
     {{/if}}
 
     {{#if namespaces}}
       <h4>Namespaces</h4>
       {{#ul namespaces}}
-        <a href="{{../path}}/{{../name}}/{{name}}.html">{{name}}</a>
+        <a href="{{href}}">{{name}}</a>
       {{/ul}}
     {{/if}}
   {{/ifNotEmpty}}
