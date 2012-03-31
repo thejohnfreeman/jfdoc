@@ -36,6 +36,7 @@ SOURCES := \
   tags/param.js \
   tags/class.js \
   generator/generator.js \
+  generator/address.js \
   generator/files.js \
   generator/namespace.js
 
