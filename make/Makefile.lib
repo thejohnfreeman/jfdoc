@@ -41,7 +41,8 @@ SOURCES := \
   generator/address.js \
   generator/files.js \
   generator/namespace.js \
-  generator/function.js
+  generator/function.js \
+  generator/class.js
 
 HEADERS := \
 
