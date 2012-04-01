@@ -19,7 +19,7 @@
     "wrench" : "*",
     "esprima" : "*",
     "markdown" : "*",
-    "handlebars" : "*",
+    "handlebars" : "git://github.com/thejohnfreeman/handlebars.js.git#develop",
     "jsparse" : "*",
     "pretty-data" : "*"
   },
