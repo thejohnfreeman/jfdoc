@@ -19,11 +19,11 @@ SOURCES := \
   utility/handlebars.js \
   jfdoc.js \
   documenter.js \
-  ast/file.js \
   ast/name.js \
+  ast/doclet.js \
+  ast/file.js \
   ast/decl.js \
   ast/scope.js \
-  ast/doclet.js \
   ast/symtab.js \
   ast/scopedIterator.js \
   parser/parser.js \
