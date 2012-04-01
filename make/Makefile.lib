@@ -39,6 +39,7 @@ SOURCES := \
   tags/class.js \
   generator/generator.js \
   generator/address.js \
+  generator/crumbs.js \
   generator/files.js \
   generator/namespace.js \
   generator/function.js \
