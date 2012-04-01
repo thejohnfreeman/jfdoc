@@ -1,0 +1,11 @@
+  <h3>
+    {{name}}({{#join params ", "}}{{name}}{{/join}})
+    <a href="{{href}}" name="{{hash}}">#</a>
+  </h3>
+  {{{description}}}
+  {{#with source}}
+<pre>{{file}}</pre>
+<pre class="brush: js; first-line: {{line}}">
+{{{code}}}
+</pre>
+  {{/with}}

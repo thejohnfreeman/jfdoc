@@ -10,28 +10,32 @@
     {{> $content}}
   {{else}}
     {{#if functions}}
-      <h4>Functions</h4>
+      <h4>Class Functions</h4>
       {{#ul functions}}
         <a href="{{href}}">{{name}}()</a>
       {{/ul}}
     {{/if}}
 
-    {{#if constructors}}
-      <h4>Classes</h4>
-      {{#ul constructors}}
-        <a href="{{href}}">{{name}}</a>
+    {{#if methods}}
+      <h4>Instance Methods</h4>
+      {{#ul methods}}
+        <a href="{{href}}">.{{name}}()</a>
       {{/ul}}
     {{/if}}
 
-    {{#if namespaces}}
-      <h4>Namespaces</h4>
-      {{#ul namespaces}}
-        <a href="{{href}}">{{name}}</a>
+    {{#if properties}}
+      <h4>Instance Properties</h4>
+      {{#ul properties}}
+        <a href="{{href}}">.{{name}}</a>
       {{/ul}}
     {{/if}}
   {{/ifNotEmpty}}
 
   {{#each functions}}
+    {{> function}}
+  {{/each}}
+
+  {{#each methods}}
     {{> function}}
   {{/each}}
 {{/partial}}
