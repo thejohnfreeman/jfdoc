@@ -30,6 +30,7 @@ SOURCES := \
   parser/node.js \
   parser/scopedIterator.js \
   parser/inference.js \
+  parser/inferenceIterator.js \
   parser/tag.js \
   parser/doclet.js \
   tags/tags.js \
