@@ -25,9 +25,9 @@ SOURCES := \
   ast/decl.js \
   ast/scope.js \
   ast/symtab.js \
-  ast/scopedIterator.js \
   parser/parser.js \
   parser/source.js \
+  parser/scopedIterator.js \
   parser/tag.js \
   parser/symbols.js \
   tags/tags.js \
