@@ -1,13 +1,14 @@
 (function () {
 
   /**
-   * @class Foo1
+   * @class
    */
+  Foo1 = function () {};
 
   /**
-   * @class
-   * @name Foo2
+   * @class Foo2
    */
+  NotFoo2 = function () {};
 
 }());
 
@@ -16,36 +17,35 @@
   var q = require("qunit");
   var help = require("../helpers");
 
-  q.module("class");
+  q.module("class", {
+    setup : function () {
+      this.decls = help.parse("class.js").globals.decls;
+      this.Foo1 = this.decls.Foo1;
+      this.Foo2 = this.decls.Foo2;
+    }
+  });
 
-  q.test("placement", function () {
-    var decls = help.parse("class.js").globals.decls;
-
+  q.test("scope", function () {
     q.expect(5);
-    q.strictEqual(Object.keys(decls).length, 2,
-      "number of classes");
-    q.ok(decls.Foo1, "Foo1 exists");
-    q.ok(decls.Foo1 instanceof jfdoc.Scope, "Foo1 is a scope");
-    q.ok(decls.Foo2, "Foo2 exists");
-    q.ok(decls.Foo2 instanceof jfdoc.Scope, "Foo2 is a scope");
+    q.strictEqual(Object.keys(this.decls).length, 2, "number of classes");
+    q.ok(this.Foo1, "Foo1 exists");
+    q.ok(this.Foo1 instanceof jfdoc.Scope, "Foo1 is a scope");
+    q.ok(this.Foo2, "Foo2 exists");
+    q.ok(this.Foo2 instanceof jfdoc.Scope, "Foo2 is a scope");
   });
 
   q.test("kind", function () {
-    var decls = help.parse("class.js").globals.decls;
-
     q.expect(4);
-    q.ok(decls.Foo1.classDoclet, "Foo1 has a class doclet");
-    q.ok(decls.Foo1.classDoclet.kind === "class", "Foo1 is a class");
-    q.ok(decls.Foo2.classDoclet, "Foo2 has a class doclet");
-    q.ok(decls.Foo2.classDoclet.kind === "class", "Foo2 is a class");
+    q.ok(this.Foo1.classDoclet, "Foo1 has a class doclet");
+    q.strictEqual(this.Foo1.classDoclet.kind, "class", "Foo1 is a class");
+    q.ok(this.Foo2.classDoclet, "Foo2 has a class doclet");
+    q.strictEqual(this.Foo2.classDoclet.kind, "class", "Foo2 is a class");
   });
 
   q.test("name", function () {
-    var decls = help.parse("class.js").globals.decls;
-
     q.expect(4);
-    help.stringEqual(decls.Foo1.name, "Foo1");
-    help.stringEqual(decls.Foo2.name, "Foo2");
+    help.stringEqual(this.Foo1.name, "Foo1");
+    help.stringEqual(this.Foo2.name, "Foo2");
   });
 
 }());

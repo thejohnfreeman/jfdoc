@@ -25,11 +25,13 @@ SOURCES := \
   ast/decl.js \
   ast/scope.js \
   ast/symtab.js \
-  ast/scopedIterator.js \
   parser/parser.js \
   parser/source.js \
-  parser/symbols.js \
-  parser/type.js \
+  parser/node.js \
+  parser/scopedIterator.js \
+  parser/inference.js \
+  parser/tag.js \
+  parser/doclet.js \
   tags/tags.js \
   tags/general.js \
   tags/file.js \
