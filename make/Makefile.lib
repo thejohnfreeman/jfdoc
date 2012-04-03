@@ -27,9 +27,11 @@ SOURCES := \
   ast/symtab.js \
   parser/parser.js \
   parser/source.js \
+  parser/node.js \
   parser/scopedIterator.js \
+  parser/inference.js \
   parser/tag.js \
-  parser/symbols.js \
+  parser/doclet.js \
   tags/tags.js \
   tags/general.js \
   tags/file.js \

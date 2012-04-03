@@ -1,7 +1,6 @@
 (function () {
 
   /**
-   * @function Foo1
    * @param zero Untyped parameter.
    * @param one General description.
    * @param one {Car} Typed parameter.
@@ -11,7 +10,7 @@
    * @param two {Hash {String -> Car}}
    *   Nested, matching braces in type. Multi-type parameter.
    */
-  var Foo1 = function () {};
+  Foo1 = function () {};
 
 }());
 
@@ -20,41 +19,34 @@
   var q = require("qunit");
   var help = require("../helpers");
 
-  q.module("param");
+  q.module("param", {
+    setup : function () {
+      this.params = help.parse("param.js").globals.decls.
+        Foo1.doclet.tags["param"];
+    }
+  });
 
-  q.test("size", function () {
-    var params = help.parse("param.js").globals.decls.
-      Foo1.doclet.tags["param"];
-
+  q.test("tags", function () {
     q.expect(2);
-    q.ok(Array.isArray(params), "parameters exist");
-    q.strictEqual(params.length, 5, "number of parameters");
+    q.ok(Array.isArray(this.params), "parameters exist");
+    q.strictEqual(this.params.length, 5, "number of parameters");
   });
 
   q.test("order", function () {
-    var params = help.parse("param.js").globals.decls.
-      Foo1.doclet.tags["param"];
-
     q.expect(6);
-    help.tagsEqual(params, "name",
+    help.tagsEqual(this.params, "name",
       ["zero", "one", "one", "two", "two"]);
   });
 
   q.test("types", function () {
-    var params = help.parse("param.js").globals.decls.
-      Foo1.doclet.tags["param"];
-
     q.expect(6);
-    help.tagsEqual(params, "type",
+    help.tagsEqual(this.params, "type",
       ["", "", "Car", "String -> Car", "Hash {String -> Car}"]);
   });
 
   q.test("description", function () {
-    var params = help.parse("param.js").globals.decls.
-      Foo1.doclet.tags["param"];
-
     q.expect(6);
-    help.tagsEqual(params, "description", [
+    help.tagsEqual(this.params, "description", [
       "Untyped parameter.",
       "General description.",
       "Typed parameter.",
