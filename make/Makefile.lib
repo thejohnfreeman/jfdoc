@@ -28,8 +28,8 @@ SOURCES := \
   ast/scopedIterator.js \
   parser/parser.js \
   parser/source.js \
+  parser/tag.js \
   parser/symbols.js \
-  parser/type.js \
   tags/tags.js \
   tags/general.js \
   tags/file.js \
