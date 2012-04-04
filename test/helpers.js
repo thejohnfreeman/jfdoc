@@ -7,11 +7,13 @@
 
   exports.parse = function parse(filename) {
     var log = console.log;
+    var warn = console.warn;
+    var error = console.error;
 
     var symbols = new jfdoc.SymbolTable();
 
     try {
-      console.log = function () {};
+      console.error = console.warn = console.log = function () {};
       var parser = new jfdoc.Parser(symbols, {
         spacesPerTab : 2
       });
@@ -19,6 +21,8 @@
       parser.parseFile(filename, source);
     } finally {
       console.log = log;
+      console.warn = warn;
+      console.error = error;
     }
 
     return symbols;
