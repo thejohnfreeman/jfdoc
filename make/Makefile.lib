@@ -14,18 +14,25 @@ TITLE := jfdoc
 SRCDIR := lib
 SOURCES := \
   utility/lang.js \
-  utility/esprima.js \
+  utility/esprima/treeIterator.js \
+  utility/esprima/commentIterator.js \
   utility/handlebars.js \
   jfdoc.js \
   documenter.js \
+  ast/name.js \
+  ast/doclet.js \
   ast/file.js \
   ast/decl.js \
   ast/scope.js \
-  ast/doclet.js \
+  ast/symtab.js \
   parser/parser.js \
   parser/source.js \
-  parser/symbols.js \
-  parser/type.js \
+  parser/node.js \
+  parser/scopedIterator.js \
+  parser/inference.js \
+  parser/inferenceIterator.js \
+  parser/tag.js \
+  parser/doclet.js \
   tags/tags.js \
   tags/general.js \
   tags/file.js \
@@ -33,14 +40,13 @@ SOURCES := \
   tags/function.js \
   tags/param.js \
   tags/class.js \
-  generate/generate.js \
-  generate/files.js \
-  generate/namespace.js
+  generator/generator.js \
+  generator/address.js \
+  generator/crumbs.js \
+  generator/files.js \
+  generator/namespace.js \
+  generator/function.js \
+  generator/class.js
 
 HEADERS := \
-
-OBJDIR := build
-
-DOCDIR := doc
-
 

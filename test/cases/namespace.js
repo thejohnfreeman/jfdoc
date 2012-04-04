@@ -1,15 +1,14 @@
 (function () {
 
   /**
-   * @namespace Foo1
+   * @namespace
    */
-  var Foo1 = {};
+  Foo1 = {};
 
   /**
-   * @namespace
-   * @name Foo2
+   * @namespace Foo2
    */
-  var Foo2 = {};
+  NotFoo2 = {};
 
 }());
 
@@ -18,35 +17,36 @@
   var q = require("qunit");
   var help = require("../helpers");
 
-  q.module("namespace");
+  q.module("namespace", {
+    setup : function () {
+      this.decls = help.parse("namespace.js").globals.decls;
+      this.Foo1 = this.decls.Foo1;
+      this.Foo2 = this.decls.Foo2;
+    }
+  });
 
-  q.test("placement", function () {
-    var decls = help.parse("namespace.js").globals.decls;
-
+  q.test("scope", function () {
     q.expect(6);
-    q.ok(decls, "global decls");
-    q.strictEqual(Object.keys(decls).length, 2,
-      "number of namespaces");
-    q.ok(decls.Foo1, "Foo1 exists");
-    q.ok(decls.Foo1 instanceof jfdoc.Scope, "Foo1 is a scope");
-    q.ok(decls.Foo2, "Foo2 exists");
-    q.ok(decls.Foo2 instanceof jfdoc.Scope, "Foo2 is a scope");
+    q.ok(this.decls, "global decls");
+    q.strictEqual(Object.keys(this.decls).length, 2, "number of namespaces");
+    q.ok(this.Foo1, "Foo1 exists");
+    q.ok(this.Foo1 instanceof jfdoc.Scope, "Foo1 is a scope");
+    q.ok(this.Foo2, "Foo2 exists");
+    q.ok(this.Foo2 instanceof jfdoc.Scope, "Foo2 is a scope");
   });
 
   q.test("kind", function () {
-    var decls = help.parse("namespace.js").globals.decls;
-
     q.expect(2);
-    q.ok(decls.Foo1.doclet.kind === "namespace", "Foo1 has namespace kind");
-    q.ok(decls.Foo2.doclet.kind === "namespace", "Foo2 has namespace kind");
+    q.strictEqual(this.Foo1.doclet.kind, "namespace",
+      "Foo1 has namespace kind");
+    q.strictEqual(this.Foo2.doclet.kind, "namespace",
+      "Foo2 has namespace kind");
   });
 
   q.test("name", function () {
-    var decls = help.parse("namespace.js").globals.decls;
-
     q.expect(4);
-    help.stringEqual(decls.Foo1.name, "Foo1");
-    help.stringEqual(decls.Foo2.name, "Foo2");
+    help.stringEqual(this.Foo1.name, "Foo1");
+    help.stringEqual(this.Foo2.name, "Foo2");
   });
 
 }());

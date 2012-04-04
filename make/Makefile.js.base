@@ -23,7 +23,8 @@ GZIP := gzip
 
 MAIN := $(TITLE).js
 
-OBJDIR := $(OBJDIR)/build-$(TITLE)
+DOCDIR := $(BUILDDIR)/doc-$(TITLE)
+OBJDIR := $(BUILDDIR)/objects-$(TITLE)
 
 # Headers hold m4 macros, so they are dependencies for all objects
 OBJECTS := $(addprefix $(OBJDIR)/,$(SOURCES))
@@ -55,10 +56,6 @@ release : COMPILER := $(YUIC)
 #release : COMPILER := cat
 release : $(MAIN).gz
 
-$(TITLE) : $(MAIN)
-	echo "#!/usr/bin/env node\n" | cat - $^ > $@
-	chmod +x $@
-
 $(MAIN) : $(OBJECTS)
 	cat $^ > $@
 
@@ -69,7 +66,7 @@ $(MAIN).gz : clean-obj $(OBJECTS)
 	-rm -rf $(OBJDIR)
 
 doc : clean-doc
-	jfdoc $(SOURCES)
+	jfdoc -d=$(DOCDIR) $(SOURCES)
 
 ##################################################
 # cleaning

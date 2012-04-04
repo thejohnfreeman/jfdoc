@@ -7,17 +7,25 @@
 
   exports.parse = function parse(filename) {
     var log = console.log;
+    var warn = console.warn;
+    var error = console.error;
+
+    var symbols = new jfdoc.SymbolTable();
 
     try {
-      console.log = function () {};
-      var doccer = new jfdoc.Documenter();
+      console.error = console.warn = console.log = function () {};
+      var parser = new jfdoc.Parser(symbols, {
+        spacesPerTab : 2
+      });
       var source = fs.readFileSync("test/cases/" + filename, "utf8");
-      doccer.add(filename, source);
+      parser.parseFile(filename, source);
     } finally {
       console.log = log;
+      console.warn = warn;
+      console.error = error;
     }
 
-    return doccer.symbols;
+    return symbols;
   };
 
   exports.stringEqual = function stringEqual(actual, expected) {

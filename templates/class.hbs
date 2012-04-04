@@ -1,0 +1,46 @@
+{{#partial "title"}}{{name}}{{/partial}}
+
+{{#partial "content"}}
+  {{> crumbs}}
+  {{{description}}}
+
+  <h3>Table of Contents <a href="#toc" name="toc">#</a></h3>
+
+  <h4>Constructor</h4>
+  <ul>
+    <li><a href="{{ctor.href}}">{{ctor.name}}()</a></li>
+  </ul>
+
+  {{#if functions}}
+    <h4>Class Functions</h4>
+    {{#ul functions}}
+      <a href="{{href}}">{{name}}()</a>
+    {{/ul}}
+  {{/if}}
+
+  {{#if methods}}
+    <h4>Instance Methods</h4>
+    {{#ul methods}}
+      <a href="{{href}}">{{name}}()</a>
+    {{/ul}}
+  {{/if}}
+
+  {{#if properties}}
+    <h4>Instance Properties</h4>
+    {{#ul properties}}
+      <a href="{{href}}">{{name}}</a>
+    {{/ul}}
+  {{/if}}
+
+  {{> function ctor}}
+
+  {{#each functions}}
+    {{> function}}
+  {{/each}}
+
+  {{#each methods}}
+    {{> function}}
+  {{/each}}
+{{/partial}}
+
+{{> main}}

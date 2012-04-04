@@ -1,44 +1,38 @@
 {{#partial "title"}}{{name}}{{/partial}}
 
 {{#partial "content"}}
-  <h2>{{name}}</h2>
+  {{> crumbs}}
   {{{description}}}
 
-  <h3>Table of Contents <a href="#toc" name="toc">#</a></h3>
+  {{#ifNotEmpty}}
+    <h3>Table of Contents <a href="#toc" name="toc">#</a></h3>
 
-  {{#if functions}}
-    <h4>Functions</h4>
-    {{#ul functions}}
-      <a href="#{{name}}">{{name}}()</a>
-    {{/ul}}
-  {{/if}}
+    {{> $content}}
+  {{else}}
+    {{#if functions}}
+      <h4>Functions</h4>
+      {{#ul functions}}
+        <a href="{{href}}">{{name}}()</a>
+      {{/ul}}
+    {{/if}}
 
-  {{#if classes}}
-    <h4>Classes</h4>
-    {{#ul classes}}
-      <a href="{{../path}}/{{../name}}/{{name}}.html">{{name}}</a>
-    {{/ul}}
-  {{/if}}
+    {{#if constructors}}
+      <h4>Classes</h4>
+      {{#ul constructors}}
+        <a href="{{href}}">{{name}}</a>
+      {{/ul}}
+    {{/if}}
 
-  {{#if namespaces}}
-    <h4>Namespaces</h4>
-    {{#ul namespaces}}
-      <a href="{{../path}}/{{../name}}/{{name}}.html">{{name}}</a>
-    {{/ul}}
-  {{/if}}
+    {{#if namespaces}}
+      <h4>Namespaces</h4>
+      {{#ul namespaces}}
+        <a href="{{href}}">{{name}}</a>
+      {{/ul}}
+    {{/if}}
+  {{/ifNotEmpty}}
 
   {{#each functions}}
-  <h3>
-    {{name}}({{#join params ", "}}{{name}}{{/join}})
-    <a href="#{{name}}" name="{{name}}">#</a>
-  </h3>
-  {{{description}}}
-  {{#with source}}
-<pre>{{file}}</pre>
-<pre class="brush: js; first-line: {{line}}">
-{{{code}}}
-</pre>
-  {{/with}}
+    {{> function}}
   {{/each}}
 {{/partial}}
 

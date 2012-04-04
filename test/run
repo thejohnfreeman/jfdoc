@@ -81,6 +81,10 @@ qunit.testDone(function ($) {
   "returns",
   "class",
   "constructor",
+  "inferName",
+  "inferKind",
+  "inferMethod",
+  "inferConstructor",
 ].map(function (name) {
   require("./cases/" + name);
 });
