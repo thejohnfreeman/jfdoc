@@ -45,6 +45,7 @@ requirejs(["qunit", "./pretty-qunit"],
     "tags/returns",
     "inference/name",
     "inference/kind",
+    "inference/constructor",
   ].map(function (name) {
     requirejs("./tests/" + name);
   });
