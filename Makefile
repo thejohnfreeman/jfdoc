@@ -30,7 +30,7 @@ doc :
 	@$(call defer,$(MAKEDIR)/Makefile.$(PRIMARY))
 
 test :
-	@./test/run --skip-passing
+	@./test/run --hide-passed
 
 ##################################################
 # cleaning
