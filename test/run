@@ -1,93 +1,56 @@
 #!/usr/bin/env node
 
-var clc = require("cli-color");
-var qunit = require("qunit");
-qunit.config.autorun = false;
+var requirejs = require("requirejs");
 
-/****************************************************/
-/* Command line arguments. */
-
-var skipPassing = false;
-
-var options = process.argv.slice(2);
-while (options.length > 0) {
-  var option = options.shift();
-  if (option === "--skip-passing") skipPassing = true;
-}
-
-/****************************************************/
-/* Suite report. */
-
-var isDone = false;
-
-qunit.done(function ($) {
-  if (isDone) return;
-  isDone = true;
-  console.log("total : (" + clc.red($.failed.toString()) + ", " +
-    clc.green($.passed.toString()) + ", " + $.total + ")");
+requirejs.config({
+  paths : {
+    "lib" : "../lib"
+  },
+  nodeRequire : require
 });
 
-/****************************************************/
-/* Module report. */
+requirejs(["qunit", "./pretty-qunit"],
+  function (qunit, pretty) {
 
-var moduleName = "";
+  qunit.config.autorun = false;
+  qunit.config.notrycatch = true;
 
-qunit.moduleStart(function ($) {
-  moduleName = $.name;
-});
+  /****************************************************/
+  /* Command line arguments. */
 
-qunit.moduleDone(function ($) {
-  if (isDone) return;
-  console.log((($.failed > 0) ? clc.red("!! ") : clc.green("OK ")) +
-    clc.blue($.name) + " : (" + clc.red($.failed.toString()) + ", " +
-    clc.green($.passed.toString()) + ", " + $.total + ")");
-});
-
-/****************************************************/
-/* Test report. */
-
-var testLog = "";
-
-qunit.log(function ($) {
-  if (skipPassing && $.result) return;
-  testLog += "\n   " + ($.result ? clc.green("OK") : clc.red("!!")) +
-    " " + $.message;
-  /* $.actual and $.expected will both be undefined if we are logging an
-   * unasserted failure, like an uncaught exception. */
-  if (!$.result && $.actual !== $.expected) {
-    testLog += "\n      " + clc.yellow("actual  ") + " : " +
-      clc.red(JSON.stringify($.actual));
-    testLog += "\n      " + clc.yellow("expected") + " : " +
-      clc.green(JSON.stringify($.expected));
+  var options = process.argv.slice(2);
+  while (options.length) {
+    var match = options[0].match(/^-([\w-]+)(?:=(.*))?$/);
+    if (!match) break;
+    options.shift();
+    switch (match[1]) {
+      case "-hide-passed": pretty.config.hidePassed = true; break;
+      case "-verbose": pretty.config.verbose = true; break;
+      case "-filter": qunit.config.filter = options.shift(); break;
+    }
   }
+
+  /****************************************************/
+
+  [
+    "utility/esprima",
+    "scanner/scope",
+    "parser",
+    "tags/author",
+    "tags/class",
+    "tags/constructor",
+    "tags/function",
+    "tags/namespace",
+    "tags/param",
+    "tags/returns",
+    "inference/name",
+    "inference/kind",
+    "inference/constructor",
+  ].map(function (name) {
+    requirejs("./tests/" + name);
+  });
+
+  qunit.start();
+
 });
-
-qunit.testDone(function ($) {
-  if (skipPassing && !$.failed) return;
-  console.log((($.failed > 0) ? "   " : clc.green("OK ")) +
-    clc.blue(moduleName + "." + $.name) + " : (" +
-    clc.red($.failed.toString()) + ", " + clc.green($.passed.toString()) +
-    ", " + $.total + ")" + testLog);
-  testLog = "";
-});
-
-/****************************************************/
-
-[
-  "file",
-  "namespace",
-  "function",
-  "param",
-  "returns",
-  "class",
-  "constructor",
-  "inferName",
-  "inferKind",
-  "inferMethod",
-  "inferConstructor",
-].map(function (name) {
-  require("./cases/" + name);
-});
-
-qunit.start();
 
