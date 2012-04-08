@@ -1,0 +1,43 @@
+#!/usr/bin/env node
+
+var requirejs = require("requirejs");
+
+requirejs.config({
+  paths : {
+    "lib" : "../lib"
+  },
+  nodeRequire : require
+});
+
+requirejs(["qunit", "./pretty-qunit"],
+  function (qunit, pretty) {
+
+  qunit.config.autorun = false;
+  qunit.config.notrycatch = true;
+
+  /****************************************************/
+  /* Command line arguments. */
+
+  var options = process.argv.slice(2);
+  while (options.length) {
+    var match = options[0].match(/^-([\w-]+)(?:=(.*))?$/);
+    if (!match) break;
+    options.shift();
+    switch (match[1]) {
+      case "-hide-passed": pretty.config.hidePassed = true; break;
+      case "-verbose": pretty.config.verbose = true; break;
+      case "-filter": qunit.config.filter = options.shift(); break;
+    }
+  }
+
+  /****************************************************/
+
+  [
+  ].map(function (name) {
+    requirejs("./tests/" + name);
+  });
+
+  qunit.start();
+
+});
+
