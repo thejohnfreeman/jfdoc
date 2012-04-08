@@ -43,6 +43,8 @@ requirejs(["qunit", "./pretty-qunit"],
     "tags/namespace",
     "tags/param",
     "tags/returns",
+    "inference/name",
+    "inference/kind",
   ].map(function (name) {
     requirejs("./tests/" + name);
   });
