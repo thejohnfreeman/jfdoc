@@ -33,6 +33,7 @@ requirejs(["qunit", "./pretty-qunit"],
   /****************************************************/
 
   [
+    "utility/esprima",
   ].map(function (name) {
     requirejs("./tests/" + name);
   });
