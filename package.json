@@ -1,6 +1,6 @@
 {
   "name" : "jfdoc",
-  "version" : "0.4.0",
+  "version" : "0.5.0",
   "author" : "John Freeman",
   "description" : "JavaScript documentation generator",
 
@@ -12,7 +12,7 @@
     "url" : "https://github.com/thejohnfreeman/jfdoc/issues"
   },
 
-  "main" : "./jfdoc.js",
+  "main" : "./lib/documenter.js",
   "bin" : "./bin/jfdoc",
 
   "dependencies" : {
@@ -30,7 +30,6 @@
   },
 
   "scripts" : {
-    "install" : "make",
     "test" : "make test"
   },
 
