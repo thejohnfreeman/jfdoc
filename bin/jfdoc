@@ -6,10 +6,14 @@
  * @author John Freeman
  */
 
-(function () {
+var requirejs = require("requirejs");
 
-  var fs = require("fs");
-  var jfdoc = require("../jfdoc.js");
+requirejs.config({
+  nodeRequire : require
+});
+
+requirejs(["fs", "../lib/documenter"],
+  function (fs, Documenter) {
 
   var parseOptions = function parseOptions(options, config) {
     var m;
@@ -35,7 +39,7 @@
   /* Trailing options are considered files. */
   var filenames = options;
 
-  var doccer = new jfdoc.Documenter(config);
+  var doccer = new Documenter(config);
 
   filenames.forEach(function (filename) {
     try {
@@ -50,5 +54,5 @@
 
   doccer.flush();
 
-}());
+});
 
