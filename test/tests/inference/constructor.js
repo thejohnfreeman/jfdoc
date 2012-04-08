@@ -2,7 +2,7 @@ define(function (require) {
 
   var q = require("qunit");
 
-  var markConstructors = require("lib/sema/constructor");
+  var markConstructors = require("lib/sema/markConstructors");
 
   var parse = require("../common/parse");
 
@@ -19,11 +19,11 @@ define(function (require) {
   });
 
   q.test("kind", function () {
-    q.expect(1);
+    q.expect(2);
     q.strictEqual(this.Foo1.doclet.kind, "constructor",
       "inferred constructor kind for decl with a prototype");
-    //q.strictEqual(this.Foo2.doclet.kind, "constructor",
-      //"inferred constructor kind for decl with a class doclet");
+    q.strictEqual(this.Foo2.doclet.kind, "constructor",
+      "inferred constructor kind for decl with a class doclet");
   });
 
 });
