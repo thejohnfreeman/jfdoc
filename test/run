@@ -36,6 +36,13 @@ requirejs(["qunit", "./pretty-qunit"],
     "utility/esprima",
     "scanner/scope",
     "parser",
+    "tags/author",
+    "tags/class",
+    "tags/constructor",
+    "tags/function",
+    "tags/namespace",
+    "tags/param",
+    "tags/returns",
   ].map(function (name) {
     requirejs("./tests/" + name);
   });
