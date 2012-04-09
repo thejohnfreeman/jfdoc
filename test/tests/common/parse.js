@@ -10,7 +10,6 @@ define(function (require) {
     var parser = new Parser(symtab);
     var source = fs.readFileSync("test/" + filename, "utf8");
     parser.parseFile(filename, source);
-    symtab.globalScope.parent = null;
     return symtab;
   };
 
