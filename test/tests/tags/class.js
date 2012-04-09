@@ -26,10 +26,10 @@ define(function (require) {
 
   q.test("kind", function () {
     q.expect(4);
-    q.ok(this.Foo1.classDoclet, "Foo1 has a class doclet");
-    q.strictEqual(this.Foo1.classDoclet.kind, "class", "Foo1 is a class");
-    q.ok(this.Foo2.classDoclet, "Foo2 has a class doclet");
-    q.strictEqual(this.Foo2.classDoclet.kind, "class", "Foo2 is a class");
+    q.ok(this.Foo1.docClass, "Foo1 has a class doclet");
+    q.strictEqual(this.Foo1.docClass.kind, "class", "Foo1 is a class");
+    q.ok(this.Foo2.docClass, "Foo2 has a class doclet");
+    q.strictEqual(this.Foo2.docClass.kind, "class", "Foo2 is a class");
   });
 
   q.test("name", function () {
