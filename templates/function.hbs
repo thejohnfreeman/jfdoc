@@ -4,8 +4,10 @@
   </h3>
   {{{description}}}
   {{#with source}}
-<pre>{{file}}</pre>
-<pre class="brush: js; first-line: {{line}}">
-{{code}}
+<pre>@ {{file}}:{{line}}</pre>
+{{#with code}}
+<pre class="brush: js; first-line: {{../line}}">
+{{this}}
 </pre>
+{{/with}}
   {{/with}}
