@@ -2,14 +2,14 @@ define(function (require) {
 
   var q = require("qunit");
 
-  var markConstructors = require("lib/sema/markConstructors");
+  var inferClasses = require("lib/sema/infer-classes");
 
   var parse = require("../common/parse");
 
   q.module("infer constructor", {
     setup : function () {
       var symtab = parse("samples/infer-constructor.js");
-      markConstructors(symtab);
+      inferClasses(symtab);
 
       this.decls = symtab.globalScope.decls;
       this.Foo1 = this.decls.Foo1;

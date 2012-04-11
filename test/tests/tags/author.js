@@ -28,7 +28,7 @@ define(function (require) {
 
   q.test("description", function () {
     q.expect(2);
-    stringEqual(this.file.doclet.description,
+    stringEqual(this.file.doclet.desc,
       "Description for the file.");
   });
 
